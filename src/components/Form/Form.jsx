@@ -6,7 +6,7 @@ export const Form = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  hendleChange = event => {
+  const hendleChange = event => {
     const { name, value } = event.currentTarget;
     switch (name) {
       case 'name':
@@ -22,7 +22,7 @@ export const Form = ({ onSubmit }) => {
     }
   };
 
-  hendleSubmit = event => {
+  const hendleSubmit = event => {
     event.preventDefault();
       const id = nanoid();
     onSubmit({ name, number, id });

@@ -14,7 +14,7 @@ export const App = () => {
   useEffect(() => {
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
-};
+
  
 
   const hendleSubmit = newContact => {
@@ -25,7 +25,7 @@ export const App = () => {
       alert('контакт уже существует');
       return;
     }
-    setContacts(prevState => [...prevState.contacts, newContact]
+    setContacts(prevState => [...prevState, newContact]
       
     )
   };
@@ -40,14 +40,13 @@ export const App = () => {
     setFilter(event.target.value);
   };
 
-  const getFilteredContacts = contacts.filter(({name})=>
+  const getFilteredContacts = () => contacts.filter(({name})=>
       name.toLowerCase().includes(filter.toLowerCase())
     );
   
 
     const FilteredContact = getFilteredContacts();
-    return
-      <>
+    return<>
         <h1>Phonebook</h1>
         <Form onSubmit={hendleSubmit} />
 
@@ -59,5 +58,5 @@ export const App = () => {
         />
       </>
     
-  
+}
 
